@@ -1,0 +1,12 @@
+table{
+    background-color: blue;
+}
+.odd{
+    background-color: white;
+}
+.even{
+    background-color: rgb(151, 151, 242);
+}
+.hidden{
+    display: none;
+}
