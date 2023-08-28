@@ -8,7 +8,7 @@ const app = createApp(App,{ silent: true })
 app.config.productionTip = false
 const routes = [
     {
-      path: "/CallHubAssignment",
+      path: "/",
       name: "mapping",
       component: mapping,
     },
