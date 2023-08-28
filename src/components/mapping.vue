@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      salesforceFields: ['First Name','Last Name','Street','City','State','Zip','Cell'],
-      callhubFields: ['First Name','Last Name','Address Line 1','City','State/Province','Pin','Ph no'],
+      salesforceFields: ['First Name','Last Name'],
+      callhubFields: ['First Name','Last Name'],
       mappings: [],
       submittedMappings: [],
       isSubmitted: false
@@ -11,7 +11,10 @@ export default {
   },
   methods: {
     addMapping() {
-      this.mappings.push({ salesforce: '', callhub: '' });
+      if(this.availableSalesforceFields().length)
+        this.mappings.push({ salesforce: '', callhub: '' });
+      else
+        alert("No Fields available to add")
     },
     availableSalesforceFields(selectedField) {
       return this.salesforceFields.filter(sfField => sfField === selectedField || !this.isFieldSelected(sfField, 'salesforce'));
@@ -25,12 +28,13 @@ export default {
     deleteMapping(index) {
       const mapping = this.mappings[index];
       this.mappings.splice(index, 1);
+      this.submitMappings()
     },
     submitMappings() {
       this.submittedMappings = this.mappings.filter(mapping => mapping.salesforce && mapping.callhub);
       this.isSubmitted = true;
     }
-  }
+  },
 };
 </script>
 
@@ -70,6 +74,7 @@ export default {
         </tr>
       </tbody>
     </table>
+    <table v-else></table>
   </div>
 </template>
 
