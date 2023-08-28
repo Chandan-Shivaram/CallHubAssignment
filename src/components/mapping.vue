@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      salesforceFields: ['First Name','Last Name'],
-      callhubFields: ['First Name','Last Name'],
+      salesforceFields: ['First Name','Last Name','Street','City','State','Zip','Cell'],
+      callhubFields: ['First Name','Last Name','Address Line 1','City','State/Province','Pin','Ph no'],
       mappings: [],
       submittedMappings: [],
       isSubmitted: false
