@@ -11,10 +11,10 @@ export default {
   },
   methods: {
     addMapping() {
-      if(this.availableSalesforceFields().length)
+      if(this.availableSalesforceFields().length && this.availableCallHubFields().length && this.mappings.length<=this.salesforceFields.length)
         this.mappings.push({ salesforce: '', callhub: '' });
       else
-        alert("No Fields available to add")
+        alert("No more Fields can be add")
     },
     availableSalesforceFields(selectedField) {
       return this.salesforceFields.filter(sfField => sfField === selectedField || !this.isFieldSelected(sfField, 'salesforce'));
